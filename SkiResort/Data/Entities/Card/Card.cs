@@ -11,5 +11,6 @@ namespace Data.Entities.Card
         public virtual User User { get; set; }
         public virtual Turnstile LastPassedGate { get; set; }
         public virtual DateTime LastPassedDate { get; set; }
+        public virtual DateTime NextPassingDate { get; set; }
     }
 }

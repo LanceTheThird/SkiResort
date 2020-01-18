@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Turnstile.Services.Abstract;
 
 namespace Turnstile.Controllers
 {
@@ -11,6 +8,18 @@ namespace Turnstile.Controllers
     [ApiController]
     public class TurnstileController : ControllerBase
     {
+        protected ITurnstileService _turnstileService;
+        public TurnstileController(ITurnstileService turnstileService)
+        {
+            _turnstileService = turnstileService;
+        }
+
+        [HttpPost]
+        public /*JsonResult*/void Enter([FromBody] string value)
+        {
+            //return Json(_turnstileService.Enter(value), JsonRequestBehavior.AllowGet) ;
+        }
+
         // GET: api/Turnstile
         [HttpGet]
         public IEnumerable<string> Get()

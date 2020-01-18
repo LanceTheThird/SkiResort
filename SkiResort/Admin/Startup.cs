@@ -2,9 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Data.Context;
+using Data.Entities.Card;
+using Data.Repository.Abstract;
+using Data.Repository.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +28,8 @@ namespace Admin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<TurnstileContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:SkiResortDb"]));
+            services.AddScoped<IResortRepository<Card>, EntityRepository<Card>>();
             services.AddControllersWithViews();
         }
 
