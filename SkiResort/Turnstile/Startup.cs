@@ -7,6 +7,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Turnstile.Services.Abstract;
 using Turnstile.Services.Concrete;
+using Data.Repository.Abstract;
+using Data.Repository.Concrete;
+using Data.Entities.Card;
+using Turnstile.Middleware;
 
 namespace Turnstile
 {
@@ -23,6 +27,8 @@ namespace Turnstile
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TurnstileContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:SkiResortDb"]));
+            services.AddScoped<IResortRepository<Card>, EntityRepository<Card>>();
+            services.AddScoped<IResortRepository<Data.Entities.Turnstiles.Turnstile>, EntityRepository<Data.Entities.Turnstiles.Turnstile>>();
             services.AddScoped<ITurnstileService, TurnstileService>();
             services.AddControllers();
         }
@@ -31,8 +37,14 @@ namespace Turnstile
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
+            {               
                 app.UseDeveloperExceptionPage();
+                app.UseHandling();
+            }
+            else
+            {
+                app.UseHandling();
+                app.UseExceptionHandler();
             }
 
             app.UseHttpsRedirection();

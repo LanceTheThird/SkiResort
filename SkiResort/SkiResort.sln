@@ -3,22 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{5D28FBBE-B6E9-4FEB-A96A-580A5697BE71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Admin", "Admin\Admin.csproj", "{5D28FBBE-B6E9-4FEB-A96A-580A5697BE71}"
 	ProjectSection(ProjectDependencies) = postProject
 		{5896B63B-5B70-40C5-AA1E-118DB22FE2A4} = {5896B63B-5B70-40C5-AA1E-118DB22FE2A4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{CDCC224E-F87E-4F86-BDAC-E953CFE0E9F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{CDCC224E-F87E-4F86-BDAC-E953CFE0E9F9}"
 	ProjectSection(ProjectDependencies) = postProject
 		{5896B63B-5B70-40C5-AA1E-118DB22FE2A4} = {5896B63B-5B70-40C5-AA1E-118DB22FE2A4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turnstile", "Turnstile\Turnstile.csproj", "{4386BC12-81BE-42BE-8351-D4F936EF6437}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Turnstile", "Turnstile\Turnstile.csproj", "{4386BC12-81BE-42BE-8351-D4F936EF6437}"
 	ProjectSection(ProjectDependencies) = postProject
 		{5896B63B-5B70-40C5-AA1E-118DB22FE2A4} = {5896B63B-5B70-40C5-AA1E-118DB22FE2A4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{5896B63B-5B70-40C5-AA1E-118DB22FE2A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{5896B63B-5B70-40C5-AA1E-118DB22FE2A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

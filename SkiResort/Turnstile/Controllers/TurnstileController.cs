@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Turnstile.Models;
 using Turnstile.Services.Abstract;
 
 namespace Turnstile.Controllers
@@ -15,9 +17,10 @@ namespace Turnstile.Controllers
         }
 
         [HttpPost]
-        public /*JsonResult*/void Enter([FromBody] string value)
+        public string Post([FromBody] TurnstileRequest value)
         {
-            //return Json(_turnstileService.Enter(value), JsonRequestBehavior.AllowGet) ;
+            //var model = JsonConvert.DeserializeObject<TurnstileRequest>(value);
+            return JsonConvert.SerializeObject(_turnstileService.Enter(value));
         }
 
         // GET: api/Turnstile
@@ -25,31 +28,6 @@ namespace Turnstile.Controllers
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/Turnstile/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Turnstile
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT: api/Turnstile/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
