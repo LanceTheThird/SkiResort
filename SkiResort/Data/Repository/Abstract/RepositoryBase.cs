@@ -27,17 +27,17 @@ namespace Data.Repository.Abstract
             return this.TurnstileContext.Set<T>().Where(expression).AsNoTracking();
         }
 
-        public void Create(T entity)
+        public virtual void Create(T entity)
         {
             this.TurnstileContext.Set<T>().Add(entity);
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             this.TurnstileContext.Set<T>().Update(entity);
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             this.TurnstileContext.Set<T>().Remove(entity);
         }

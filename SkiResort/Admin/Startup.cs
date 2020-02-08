@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Data.Context;
 using Data.Entities.Card;
+using Data.Entities.Users;
 using Data.Repository.Abstract;
 using Data.Repository.Concrete;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +31,8 @@ namespace Admin
         {
             services.AddDbContext<TurnstileContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:SkiResortDb"]));
             services.AddScoped<IResortRepository<Card>, EntityRepository<Card>>();
+            services.AddScoped<IResortRepository<Pass>, PassRepository>();
+            services.AddScoped<IResortRepository<User>, UserRepository>();
             services.AddControllersWithViews();
         }
 
@@ -57,7 +60,7 @@ namespace Admin
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Pass}/{action=Index}/{id?}");
             });
         }
     }

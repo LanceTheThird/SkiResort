@@ -5,7 +5,7 @@ using System;
 
 namespace Data.Entities.Card
 {
-    public class Card : EntityWithState
+    public class Card : EntityWithName
     {
         public virtual Pass Pass { get; set; }
         public virtual User User { get; set; }

@@ -6,6 +6,7 @@ namespace Data.Entities.Users
     public class Account : EntityWithState
     {
         public virtual string Login { get; set; }
+        public virtual string Password { get; set; }
         public virtual Role Role { get; set; }
         public virtual string FirstName { get; set; }
         public virtual string MiddleName { get; set; }

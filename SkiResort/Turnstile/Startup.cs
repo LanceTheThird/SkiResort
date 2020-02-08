@@ -28,6 +28,7 @@ namespace Turnstile
         {
             services.AddDbContext<TurnstileContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:SkiResortDb"]));
             services.AddScoped<IResortRepository<Card>, EntityRepository<Card>>();
+            services.AddScoped<IResortRepository<Pass>, PassRepository>();
             services.AddScoped<IResortRepository<Data.Entities.Turnstiles.Turnstile>, EntityRepository<Data.Entities.Turnstiles.Turnstile>>();
             services.AddScoped<ITurnstileService, TurnstileService>();
             services.AddControllers();

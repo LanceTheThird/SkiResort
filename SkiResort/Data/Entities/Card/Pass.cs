@@ -5,8 +5,10 @@ using System.Collections.Generic;
 
 namespace Data.Entities.Card
 {
-    public class Pass : EntityWithState
+    public class Pass : EntityWithName
     {
+        public decimal Price { get; set; }
+        public string Description { get; set; }
         public virtual IList<PassTurnstile> PassTurnstiles { get; set; }
     }
 
