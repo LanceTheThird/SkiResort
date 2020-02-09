@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Admin.ViewModels.PassTurnstileViewModel>
+@{
+    ViewData["Title"] = "EditPassTurnstiles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>EditPassTurnstiles</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TurnstileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsInPass)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TurnstileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsInPass)
+                </td>
+                @Html.HiddenFor(modelItem => item.PassId)
+                @Html.HiddenFor(modelItem => item.TurnstileId)
+                <td>
+                    @Html.ActionLink("Add", "AddTurnstile", new { item.PassId, item.TurnstileId }) |
+                    @Html.ActionLink("Remove", "RemoveTurnstile", new { item.PassId, item.TurnstileId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

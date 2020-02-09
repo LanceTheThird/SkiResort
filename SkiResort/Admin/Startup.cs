@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Admin.Services.Abstract;
+using Admin.Services.Concrete;
 using Data.Context;
 using Data.Entities.Card;
+using Data.Entities.Turnstiles;
 using Data.Entities.Users;
 using Data.Repository.Abstract;
 using Data.Repository.Concrete;
@@ -33,6 +36,9 @@ namespace Admin
             services.AddScoped<IResortRepository<Card>, EntityRepository<Card>>();
             services.AddScoped<IResortRepository<Pass>, PassRepository>();
             services.AddScoped<IResortRepository<User>, UserRepository>();
+            services.AddScoped<IResortRepository<Turnstile>, TurnstileRepository>();
+            services.AddScoped<IResortRepository<PassTurnstile>, PassTurnstileRepository>();
+            services.AddScoped<IPassService, PassService>();
             services.AddControllersWithViews();
         }
 
