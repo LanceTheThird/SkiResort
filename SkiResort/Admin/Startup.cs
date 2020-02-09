@@ -33,12 +33,14 @@ namespace Admin
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TurnstileContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:SkiResortDb"]));
-            services.AddScoped<IResortRepository<Card>, EntityRepository<Card>>();
+            services.AddScoped<IResortRepository<Card>, CardRepository>();
             services.AddScoped<IResortRepository<Pass>, PassRepository>();
             services.AddScoped<IResortRepository<User>, UserRepository>();
             services.AddScoped<IResortRepository<Turnstile>, TurnstileRepository>();
             services.AddScoped<IResortRepository<PassTurnstile>, PassTurnstileRepository>();
             services.AddScoped<IPassService, PassService>();
+            services.AddScoped<ICardService, CardService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddControllersWithViews();
         }
 
